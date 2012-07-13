@@ -10,7 +10,6 @@ describe_service "playlists/:id" do |service|
   service.response do |response|
     response.object do |obj|
       obj.integer :id
-      obj.string :message
     end
   end
   
