@@ -30,3 +30,17 @@ WDSinatra::AppLoader.set_loadpath(root)
 Dir.glob("lib/tasks/**/*.rake").each do |task_file|
   load task_file
 end
+
+namespace :db do
+  task :environment do
+    require 'active_record'
+    ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: 'db/development.sqlite3'
+  end
+
+  desc "migrate"
+  task(migrate: :environment) do
+    ActiveRecord::Base.logger = Logger.new(STDOUT)
+    ActiveRecord::Migration.verbose = true
+    ActiveRecord::Migrator.migrate("db/migrate")
+  end
+end
