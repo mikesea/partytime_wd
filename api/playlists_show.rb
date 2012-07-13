@@ -10,6 +10,7 @@ describe_service "playlists/:id" do |service|
   service.response do |response|
     response.object do |obj|
       obj.integer :id
+      obj.array :tracks
     end
   end
   
@@ -21,6 +22,6 @@ describe_service "playlists/:id" do |service|
   
   # ACTION/IMPLEMENTATION
   service.implementation do
-    { id: Playlist.find(params[:id]).id }.to_json
+    (Playlist.find(params[:id]).as_json).to_json
   end
 end
