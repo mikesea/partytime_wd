@@ -2,6 +2,10 @@
 require 'irb'
 require 'rubygems'
 require 'wd_sinatra/app_loader'
+require 'active_record'
 root = File.expand_path('..', File.dirname(__FILE__))
 WDSinatra::AppLoader.console(root)
+ActiveRecord::Base.establish_connection(
+  adapter: 'sqlite3',
+  database: 'db/development.sqlite3')
 IRB.start(__FILE__)
