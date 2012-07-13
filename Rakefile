@@ -4,6 +4,7 @@ require 'rubygems'
 require 'bundler'
 Bundler.setup
 require 'wd_sinatra/app_loader'
+require 'active_record'
 
 root = File.expand_path(File.dirname(__FILE__))
 
@@ -33,8 +34,7 @@ end
 
 namespace :db do
   task :environment do
-    require 'active_record'
-    ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: 'db/development.sqlite3'
+    ActiveRecord::Base.establish_connection adapter: "sqlite3", database: "db/#{ENV['RACK_ENV']}.sqlite3"
   end
 
   desc "migrate"
@@ -42,5 +42,11 @@ namespace :db do
     ActiveRecord::Base.logger = Logger.new(STDOUT)
     ActiveRecord::Migration.verbose = true
     ActiveRecord::Migrator.migrate("db/migrate")
+  end
+
+  desc "rolls back the migration (use steps with STEP=n)"
+  task(rollback: :environment) do
+    step = ENV["STEP"] ? ENV["STEP"].to_i : 1
+    ActiveRecord::Migrator.rollback('db/migrate', step)
   end
 end
