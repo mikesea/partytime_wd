@@ -15,6 +15,9 @@ GEM
     arel (3.0.2)
     backports (2.3.0)
     builder (3.0.0)
+    database_cleaner (0.8.0)
+    factory_girl (3.5.0)
+      activesupport (>= 3.0.0)
     i18n (0.6.0)
     json (1.7.3)
     minitest (3.2.0)
@@ -46,6 +49,8 @@ PLATFORMS
 DEPENDENCIES
   activerecord (= 3.2.6)
   backports (= 2.3.0)
+  database_cleaner
+  factory_girl (~> 3.0)
   json
   minitest
   rack-test (= 0.6.1)

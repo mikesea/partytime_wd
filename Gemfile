@@ -15,6 +15,8 @@ gem 'json', :platform => 'ruby_18'
 
 group :development, :test do
   gem "rack-test", "0.6.1"
+  gem "database_cleaner"
+  gem "factory_girl", "~> 3.0"
   # gem "foreman"
   # gem "puma"
   gem "minitest"
