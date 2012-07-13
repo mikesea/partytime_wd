@@ -8,9 +8,14 @@ describe_service "playlists/:id" do |service|
   
   # OUTPUT
   service.response do |response|
-    response.object do |obj|
-      obj.integer :id
-      obj.array :tracks
+    response.object do |playlist|
+      playlist.integer :id
+      playlist.array :tracks do |track|
+        track.string :title
+        track.string :album_title
+        track.string :artist_name
+        track.string :rdio_id
+      end
     end
   end
   
