@@ -1,7 +1,7 @@
 class Track < ActiveRecord::Base
   belongs_to :playlist
 
-  def as_json
+  def as_json(*options)
     { title: title,
       album_title: album_title,
       artist_name: artist_name,
