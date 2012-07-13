@@ -4,12 +4,18 @@ require 'minitest/spec'
 require 'rack'
 require 'rack/test'
 require 'json'
+require 'factory_girl'
+require 'database_cleaner'
 require 'wd_sinatra/test_helpers'
+require './config/application'
 
 ENV['DONT_PRINT_ROUTES'] = 'true'
 root = File.expand_path('..', File.dirname(__FILE__))
 WDSinatra::AppLoader.server(root)
 WeaselDiesel.send(:include, JSONResponseVerification)
+
+DatabaseCleaner.strategy = :transaction
+FactoryGirl.find_definitions
 
 if RUBY_VERSION =~ /1.8/
   require 'minitest/autorun'
