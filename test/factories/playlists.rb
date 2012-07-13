@@ -3,7 +3,7 @@ FactoryGirl.define do
 
   factory :playlist_with_tracks, parent: :playlist do
     after(:create) do |playlist, evaluator|
-      5.times do
+      10.times do
         track = FactoryGirl.build(:track)
         playlist.tracks << track
       end
