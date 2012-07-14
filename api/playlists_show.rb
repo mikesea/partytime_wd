@@ -27,6 +27,6 @@ describe_service "playlists/:id" do |service|
   
   # ACTION/IMPLEMENTATION
   service.implementation do
-    Playlist.find(params[:id]).to_json
+    Playlist.where(id: params[:id]).first.to_json
   end
 end
