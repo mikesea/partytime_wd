@@ -6,3 +6,4 @@ root = File.expand_path(File.dirname(__FILE__))
 
 WDSinatra::AppLoader.server(root)
 run Sinatra::Application
+use ActiveRecord::ConnectionAdapters::ConnectionManagement
