@@ -22,4 +22,15 @@ class PlaylistTracksCreateSpec < MiniTest::Spec
     TestApi.post "/playlists/:playlist_id/tracks", { playlist_id: playlist.id, track: track }
     assert_equal 201, TestApi.json_response.status
   end
+
+  describe "bad requests" do
+    before(:each) do
+      TestApi.post "/playlists/:playlist_id/tracks", { playlist_id: playlist.id+1, track: track }
+    end
+
+    it "returns a 400 if the playlist doesn't exist" do
+      assert_equal 400, TestApi.json_response.status
+    end
+
+  end
 end
