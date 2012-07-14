@@ -1,5 +1,6 @@
 require 'test_helpers'
- class PlaylistsCreateSpec < MiniTest::Spec
+
+class PlaylistsCreateSpec < MiniTest::Spec
   before :each do
     DatabaseCleaner.start
   end
