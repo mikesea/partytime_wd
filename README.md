@@ -1,6 +1,6 @@
 # Weasel Diesel Party Time!
 
-This project is an implementation of the [Party Time](https://github.com/mikesea/party_time) API using @mattetti's [Weasel Diesel](https://github.com/mattetti/Weasel-Diesel) web service DSL, and the [Weasel Diesel Sinatra](https://github.com/mattetti/wd-sinatra) gem.
+This project is an (example) implementation of the [Party Time](https://github.com/mikesea/party_time) API using @mattetti's [Weasel Diesel](https://github.com/mattetti/Weasel-Diesel) web service DSL, and the [Weasel Diesel Sinatra](https://github.com/mattetti/wd-sinatra) gem.
 
 ## Usage
 1. First, clone the repo and bundle the app's dependencies:
