@@ -5,17 +5,23 @@ describe_service "playlists/:playlist_id/tracks/:id" do |service|
   
   # INPUT
   service.params do |p|
-    p.integer :playlist_id
-    p.integer :id
+    p.integer :playlist_id,
+              doc: "The ID of the playlist to which the track belongs.",
+              required: true,
+              null: false
+    p.integer :id,
+              doc: "The ID of the track to be deleted.",
+              required: true,
+              null: false
   end
   
   # OUTPUT
   service.response do |response|
     response.object do |track|
-      track.string :title
-      track.string :album_title
-      track.string :artist_name
-      track.string :rdio_id
+      track.string :title, doc: "The title of the track."
+      track.string :album_title, doc: "The title of the album to which the track belongs."
+      track.string :artist_name, doc: "The name of the track's artist."
+      track.string :rdio_id, doc: "The Rdio ID of the track."
     end
   end
   
