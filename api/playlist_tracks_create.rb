@@ -34,7 +34,8 @@ describe_service "playlists/:playlist_id/tracks" do |service|
   # ACTION/IMPLEMENTATION
   service.implementation do
     playlist = Playlist.where(id: params[:playlist_id]).first
-    if track = playlist.tracks.create(params[:track])
+    if playlist && track = playlist.tracks.build(params[:track])
+      playlist.save
       status 201; track.to_json
     else
       status 400
