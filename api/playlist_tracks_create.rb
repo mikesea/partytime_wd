@@ -27,6 +27,8 @@ describe_service "playlists/:playlist_id/tracks" do |service|
   # DOCUMENTATION
   service.documentation do |doc|
     doc.overall "This service adds a track to an existing playlist."
+    doc.example "<code>
+      curl -d 'track[title]=song1&track[album_title]=album1&track[artist_name]=artist1&track[rdio_id]=t123' http://localhost:9292/playlists/1/tracks</code>"
   end
   
   # ACTION/IMPLEMENTATION
