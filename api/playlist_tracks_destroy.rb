@@ -22,6 +22,7 @@ describe_service "playlists/:playlist_id/tracks/:id" do |service|
   # DOCUMENTATION
   service.documentation do |doc|
     doc.overall "This service removes a track from an existing playlist."
+    doc.example "<code>curl -X DELETE http://localhost:9292/playlists/1/tracks/20</code>"
   end
   
   # ACTION/IMPLEMENTATION
