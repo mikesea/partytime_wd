@@ -1,3 +1,4 @@
 # Ignore the database
 /db/*.sqlite3
 /tmp/*.sqlite3
+Thorfile
