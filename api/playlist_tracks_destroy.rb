@@ -28,7 +28,7 @@ describe_service "playlists/:playlist_id/tracks/:id" do |service|
   # ACTION/IMPLEMENTATION
   service.implementation do
     track = Track.where(id: params[:id]).first
-    if track.playlist.id == params[:playlist_id]
+    if track && track.playlist.id == params[:playlist_id]
       track.destroy.to_json
     else
       status 400
