@@ -2,7 +2,7 @@ module Recommender
 
   def Recommender.recommend_tracks_from_artists(artists)
     tracks = []
-    15.times do |n, t|
+    15.times do |n|
       tracks << Track.new(title: "title_#{n+1}", 
         artist_name: "artist_#{n+1}",
         album_title: "album_#{n+1}",
