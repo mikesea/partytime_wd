@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Weasel Diesel - API documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+      div.api {
+        padding-top: 60px;
+        margin-top: -60px;
+      }
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href=images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">Web APIs Documentation</a>
+          <ul class="nav">
+            <li class="active"><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="sidebar">
+        <div class="well">
+          <h5>Available APIs</h5>
+          <ul>
+            
+              <li><a href="#raw-post-playlists">playlists [POST]</a></li>
+            
+              <li><a href="#raw-get-playlists/:id">playlists/:id [GET]</a></li>
+            
+              <li><a href="#raw-post-playlists/:playlist_id/tracks">playlists/:playlist_id/tracks [POST]</a></li>
+            
+              <li><a href="#raw-delete-playlists/:playlist_id/tracks/:id">playlists/:playlist_id/tracks/:id [DELETE]</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <div class="hero-unit">
+          <h1>Web APIs</h1>
+          <p>You will find on left, the list of all the web APIs offered by this app.</p>
+        </div>
+
+        
+          <div class="api" id="raw-post-playlists/:playlist_id/tracks">
+            <div>
+              <h2>POST  /playlists/:playlist_id/tracks</h2>
+              
+              <p>This service adds a track to an existing playlist.</p>
+              
+                <ul>
+                  
+                    <li><code>    <code>
+      curl -d 'track[title]=song1&track[album_title]=album1&track[artist_name]=artist1&track[rdio_id]=t123' http://localhost:9292/playlists/1/tracks
+    </code>
+</code></li>
+                  
+                </ul>
+              
+
+              <h3>Input parameters description</h3>
+              
+              
+                <div class='well'>
+                  <h4>Namespace: <span style='font-style: italic'>track</span></h4>
+                  <div style='padding-left: 40px'>
+                
+                  
+                    <h4>Required Params</h4>
+                     <ul>
+                       
+                         <li>
+                          <span class='label notice'>title</span> of type <span class='label success'>string</span>
+                          
+                             The title of the track.&nbsp;
+                          
+                          </li>
+                       
+                         <li>
+                          <span class='label notice'>album_title</span> of type <span class='label success'>string</span>
+                          
+                             The title of the album to which the track belongs.&nbsp;
+                          
+                          </li>
+                       
+                         <li>
+                          <span class='label notice'>artist_name</span> of type <span class='label success'>string</span>
+                          
+                             The name of the track's artist.&nbsp;
+                          
+                          </li>
+                       
+                         <li>
+                          <span class='label notice'>rdio_id</span> of type <span class='label success'>string</span>
+                          
+                             The Rdio ID of the track.&nbsp;
+                          
+                          </li>
+                      
+                    </ul>
+                    
+                  
+                  
+                  
+                </div>
+                </div>
+              
+
+              
+                
+                  <h3>Required Params</h3>
+                  <ul>
+                     
+                      <li>
+                        <span class='label notice'>playlist_id</span> of type <span class='label success'>integer</span>
+                        
+                           The ID of the playlist to which the track belongs.&nbsp;
+                        
+                        
+                        
+                      </li>
+                      
+                    </ul>
+                  
+                
+                
+                
+
+              </div>
+
+              <div>
+              
+                <h3>Response description</h3>
+                <div class='well'>
+                  
+                      <h6>Properties:</h6><ul><li><span class='label notice'>title</span> of type <span class='label success'>string</span>  The title of the track.</li><li><span class='label notice'>album_title</span> of type <span class='label success'>string</span>  The title of the album to which the track belongs.</li><li><span class='label notice'>artist_name</span> of type <span class='label success'>string</span>  The name of the track's artist.</li><li><span class='label notice'>rdio_id</span> of type <span class='label success'>string</span>  The Rdio ID of the track.</li></ul>
+                  
+                  
+                </div>
+              </ul>
+              <h4>Response example</h4>
+              <div class='well'><code>{"title":"string","album_title":"string","artist_name":"string","rdio_id":"string"}</code></div>
+            
+          </div>
+
+        </div>
+        <hr>
+      
+          <div class="api" id="raw-delete-playlists/:playlist_id/tracks/:id">
+            <div>
+              <h2>DELETE  /playlists/:playlist_id/tracks/:id</h2>
+              
+              <p>This service removes a track from an existing playlist.</p>
+              
+                <ul>
+                  
+                    <li><code><code>curl -X DELETE http://localhost:9292/playlists/1/tracks/20</code></code></li>
+                  
+                </ul>
+              
+
+              <h3>Input parameters description</h3>
+              
+              
+
+              
+                
+                  <h3>Required Params</h3>
+                  <ul>
+                     
+                      <li>
+                        <span class='label notice'>playlist_id</span> of type <span class='label success'>integer</span>
+                        
+                           The ID of the playlist to which the track belongs.&nbsp;
+                        
+                        
+                        
+                      </li>
+                       
+                      <li>
+                        <span class='label notice'>id</span> of type <span class='label success'>integer</span>
+                        
+                           The ID of the track to be deleted.&nbsp;
+                        
+                        
+                        
+                      </li>
+                      
+                    </ul>
+                  
+                
+                
+                
+
+              </div>
+
+              <div>
+              
+                <h3>Response description</h3>
+                <div class='well'>
+                  
+                      <h6>Properties:</h6><ul><li><span class='label notice'>title</span> of type <span class='label success'>string</span>  The title of the track.</li><li><span class='label notice'>album_title</span> of type <span class='label success'>string</span>  The title of the album to which the track belongs.</li><li><span class='label notice'>artist_name</span> of type <span class='label success'>string</span>  The name of the track's artist.</li><li><span class='label notice'>rdio_id</span> of type <span class='label success'>string</span>  The Rdio ID of the track.</li></ul>
+                  
+                  
+                </div>
+              </ul>
+              <h4>Response example</h4>
+              <div class='well'><code>{"title":"string","album_title":"string","artist_name":"string","rdio_id":"string"}</code></div>
+            
+          </div>
+
+        </div>
+        <hr>
+      
+          <div class="api" id="raw-post-playlists">
+            <div>
+              <h2>POST  /playlists</h2>
+              
+              <p>    This service accepts a list of musical <code>artists</code>,
+    and then builds 15 track playlist with similarities to the provided <code>artists</code>.
+</p>
+              
+                <ul>
+                  
+                    <li><code><code>curl -d 'artists=Weezer, Black Keys', http://localhost:9292/playlists</code></code></li>
+                  
+                </ul>
+              
+
+              <h3>Input parameters description</h3>
+              
+              
+
+              
+                
+                
+                
+                  <h3>Optional Params</h3>
+                  <ul>
+                     
+                      <li>
+                        <span class='label notice'>artists</span> of type <span class='label success'>array</span>
+                        
+                           An list artists to use for track recommendations.&nbsp;
+                        
+                        
+                        
+                      </li>
+                      
+                    </ul>
+                  
+                
+
+              </div>
+
+              <div>
+              
+                <h3>Response description</h3>
+                <div class='well'>
+                  
+                      <h6>Properties:</h6><ul><li><span class='label notice'>id</span> of type <span class='label success'>integer</span>  The ID of the track that has been deleted.</li><li><span class='label notice'>tracks</span> of type <span class='label success'>Array</span><h6>Properties of each array item:</h6><ul><li><span class='label notice'>title</span> of type <span class='label success'>string</span>  The title of the track.</li><li><span class='label notice'>album_title</span> of type <span class='label success'>string</span>  The title of the album to which the track belongs.</li><li><span class='label notice'>artist_name</span> of type <span class='label success'>string</span>  The name of the track's artist.</li><li><span class='label notice'>rdio_id</span> of type <span class='label success'>string</span>  The Rdio ID of the track.</li></ul></li></ul>
+                  
+                  
+                </div>
+              </ul>
+              <h4>Response example</h4>
+              <div class='well'><code>{"id":"integer"}</code></div>
+            
+          </div>
+
+        </div>
+        <hr>
+      
+          <div class="api" id="raw-get-playlists/:id">
+            <div>
+              <h2>GET  /playlists/:id</h2>
+              
+              <p>This service returns a playlist.</p>
+              
+                <ul>
+                  
+                    <li><code><code>curl 'http://localhost:9292/playlists/1'</code></code></li>
+                  
+                </ul>
+              
+
+              <h3>Input parameters description</h3>
+              
+              
+
+              
+                
+                  <h3>Required Params</h3>
+                  <ul>
+                     
+                      <li>
+                        <span class='label notice'>id</span> of type <span class='label success'>integer</span>
+                        
+                           The ID of the playlist to which the track belongs.&nbsp;
+                        
+                        
+                        
+                      </li>
+                      
+                    </ul>
+                  
+                
+                
+                
+
+              </div>
+
+              <div>
+              
+                <h3>Response description</h3>
+                <div class='well'>
+                  
+                      <h6>Properties:</h6><ul><li><span class='label notice'>id</span> of type <span class='label success'>integer</span>  The ID of the playlist that was fetched.</li><li><span class='label notice'>tracks</span> of type <span class='label success'>Array</span><h6>Properties of each array item:</h6><ul><li><span class='label notice'>title</span> of type <span class='label success'>string</span>  The title of the track.</li><li><span class='label notice'>album_title</span> of type <span class='label success'>string</span>  The title of the album to which the track belongs.</li><li><span class='label notice'>artist_name</span> of type <span class='label success'>string</span>  The name of the track's artist.</li><li><span class='label notice'>rdio_id</span> of type <span class='label success'>string</span>  The Rdio ID of the track.</li></ul></li></ul>
+                  
+                  
+                </div>
+              </ul>
+              <h4>Response example</h4>
+              <div class='well'><code>{"id":"integer"}</code></div>
+            
+          </div>
+
+        </div>
+        <hr>
+      
+
+      <footer>
+        <p>&copy; You 2012</p>
+      </footer>
+      </div>
+    </div>
+
+  </body>
+</html>
