@@ -1,6 +1,6 @@
 module Recommender
 
-  def Recommender.recommend_tracks_from_artists(artists)
+  def self.recommend_tracks_from_artists(artists)
     tracks = []
     15.times do |n|
       tracks << Track.new(title: "title_#{n+1}", 
